@@ -11,7 +11,7 @@ import org.springframework.web.client.RestOperations;
  *
  * @author Gavin.Lin
  */
-public interface TencentWeibo extends RequestAPI, ApiBinding {
+public interface TencentWeibo extends RequestAPI {
 //    public static final String API_V1_BASE_URL="http://open.t.qq.com/api";
 //    public static final String API_V2_BASE_URL="https://open.t.qq.com/api";
 

@@ -16,8 +16,6 @@
 package org.springframework.social.tencentWeibo.api;
 
 import java.io.Serializable;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  *
@@ -352,33 +350,4 @@ public class TencentWeiboProfile extends TencentWeiboObject implements Serializa
         return data.getTag();
     }
 
-//    public JSONObject toJSONObject() {
-//        // &fields=first_name,last_name,name,username,id,gender,picture,locale,birthday,email
-//        JSONObject json = null;
-//        try {
-//            json = new JSONObject();
-////            json.put("first_name", firstName);
-////            json.put("last_name", lastName);
-//            json.put("username", data.getName());
-//            json.put("name", data.getNick());
-//            json.put("id", data.getOpenid());
-//            json.put("gender", this.getGender());
-//            json.put("locale", data.getLocation());
-//            json.put("birthday", data.getBirth_month() + "/" + data.getBirth_day() + "/" + data.getBirth_year());
-//            json.put("email", data.getEmail());
-//            json.put("picture", new JSONObject().put("data", new JSONObject().put("is_silhouette", false).put("url", data.getHead() + "/0")));
-//        } catch (JSONException jsone) {
-//        }
-//        return json;
-//    }
-//
-//    public JSONObject toJSONObject(String person_oid) {
-//        // put("oid", String.valueOf(person.getObjectId()));
-//        JSONObject json = toJSONObject();
-//        try {
-//            json.put("oid", String.valueOf(person_oid));
-//        } catch (JSONException jsone) {
-//        }
-//        return json;
-//    }
 }

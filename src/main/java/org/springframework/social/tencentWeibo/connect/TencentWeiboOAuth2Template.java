@@ -4,39 +4,29 @@
  */
 package org.springframework.social.tencentWeibo.connect;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.shindig.common.logging.i18n.MessageKeys;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Template;
 import org.springframework.social.support.ClientHttpRequestFactorySelector;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- *
  * @author Gavin.Lin
  */
 public class TencentWeiboOAuth2Template extends OAuth2Template {
 
-    private static final String classname = TencentWeiboOAuth2Template.class.getName();
-    private static final Logger LOG = Logger.getLogger(classname, MessageKeys.MESSAGES);
     private final String clientId;
     private final String clientSecret;
     private final String accessTokenUrl;

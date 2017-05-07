@@ -16,42 +16,27 @@
 package org.springframework.social.tencentWeibo.api.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rolltech.ayplus.social.openid.auth.AyplusFacebookErrorHandler;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import static org.springframework.http.converter.json.MappingJackson2HttpMessageConverter.DEFAULT_CHARSET;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.OAuth2Version;
 import org.springframework.social.support.ClientHttpRequestFactorySelector;
 import org.springframework.social.support.URIBuilder;
-import org.springframework.social.tencentWeibo.api.FavoriteOperations;
-import org.springframework.social.tencentWeibo.api.FriendOperations;
-import org.springframework.social.tencentWeibo.api.HotTweetOperations;
-import org.springframework.social.tencentWeibo.api.InformationOperations;
-import org.springframework.social.tencentWeibo.api.ListOperations;
-import org.springframework.social.tencentWeibo.api.LocationBasedServiceOperations;
-import org.springframework.social.tencentWeibo.api.NotificationOperations;
-import org.springframework.social.tencentWeibo.api.OtherOperations;
-import org.springframework.social.tencentWeibo.api.PrivateMessageOperations;
-import org.springframework.social.tencentWeibo.api.ShortUrlOperations;
-import org.springframework.social.tencentWeibo.api.StatusOperations;
-import org.springframework.social.tencentWeibo.api.TagOperations;
-import org.springframework.social.tencentWeibo.api.TencentWeibo;
-import org.springframework.social.tencentWeibo.api.TweetOperations;
-import org.springframework.social.tencentWeibo.api.UserOperations;
-import org.springframework.social.tencentWeibo.api.VoteOperations;
+import org.springframework.social.tencentWeibo.api.*;
 import org.springframework.social.tencentWeibo.api.impl.json.TencentWeiboModule;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.springframework.http.converter.json.MappingJackson2HttpMessageConverter.DEFAULT_CHARSET;
+
 /**
- *
  * @author Gavin.Lin
  */
 public class TencentWeiboTemplate extends AbstractOAuth2ApiBinding implements TencentWeibo {
@@ -95,7 +80,7 @@ public class TencentWeiboTemplate extends AbstractOAuth2ApiBinding implements Te
      * token.
      *
      * @param accessToken An access token given by TencentWeibo after a
-     * successful OAuth 2 authentication.
+     *                    successful OAuth 2 authentication.
      */
     @Deprecated
     public TencentWeiboTemplate(String accessToken) {
@@ -132,7 +117,7 @@ public class TencentWeiboTemplate extends AbstractOAuth2ApiBinding implements Te
 
     @Override
     protected void configureRestTemplate(RestTemplate restTemplate) {
-        restTemplate.setErrorHandler(new AyplusFacebookErrorHandler());
+        restTemplate.setErrorHandler(new TencentWeiboErrorHandler());
     }
 
     @Override
